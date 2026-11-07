@@ -6,16 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    protected $primaryKey = 'id_borrow';
     protected $fillable = [
-        'id_borrow',
-        'nama_alat',
-        'jumlah',
         'image',
+        'produk',
+        'deskripsi',
+        'status',
+        'harga',
+        'kategori_id',
     ];
 
-    public function borrows()
+    public function category()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class, 'kategori_id',
+        'id_kategori');
     }
 }

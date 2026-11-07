@@ -12,13 +12,20 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama_produk');
+           $table->id();
+            $table->string('image')->nullable();
+            $table->string('produk');
+             $table->string('status');
             $table->string('deskripsi');
-            $table->string('kategori');
-            $table->string('status');
+            $table->decimal('harga',12, 2);
+            $table->integer('kategori_id');
 
             $table->timestamps();
+            
+            $table->foreign('kategori_id')
+                ->references('id_kategori')
+                ->on('categories')
+                ->cascadeOnDelete();
         });
     }
 

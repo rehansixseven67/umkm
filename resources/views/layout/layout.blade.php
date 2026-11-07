@@ -67,7 +67,6 @@
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-
                         <li>
                             <a class="dropdown-item" href="authentication-signup-with-header-footer.html">
                                 <div class="d-flex align-items-center">
@@ -89,7 +88,7 @@
                     <img src="{{ asset('assets/images/logo-icon.png')}}" class="logo-icon" alt="logo icon">
                 </div>
                 <div>
-                    <h4 class="logo-text">Onedash</h4>
+                    <h4 class="logo-text">Naturally55</h4>
                 </div>
                 <div class="toggle-icon ms-auto"><i class="bi bi-list"></i>
                 </div>
@@ -97,7 +96,7 @@
             <!--navigation-->
             <ul class="metismenu" id="menu">
                 <li>
-                    <a href="/">
+                    <a href="{{ route('dashboard') }}">
                         <div class="parent-icon"><i class="bi bi-house-fill"></i>
                         </div>
                         <div class="menu-title">Dashboard Admin</div>
@@ -113,21 +112,17 @@
                     </a>
                     <!-- elo -->
                     <ul>
-                        <li> <a href="widgets-static-widgets.html"><i class="bi bi-circle"></i>Index Produk</a>
+                        <li>
+                            <a href="{{ route('product.index') }}">
+                                <i class="bi bi-circle"></i>Daftar Produk
+                            </a>
                         </li>
-                        <li> <a href="widgets-data-widgets.html"><i class="bi bi-circle"></i>Kategori Produk</a>
-                        </li>
-                        <li> <a href="widgets-data-widgets.html"><i class="bi bi-circle"></i>Ketersediaan Produk</a>
+                        <li>
+                            <a href="{{ route('category.index') }}">
+                                <i class="bi bi-circle"></i>daftar kategori
+                            </a>
                         </li>
                     </ul>
-                </li>
-                <li class="menu-label">Akun</li>
-                <li>
-                    <a href="pages-user-profile.html">
-                        <div class="parent-icon"><i class="bi bi-person-lines-fill"></i>
-                        </div>
-                        <div class="menu-title">Logout</div>
-                    </a>
                 </li>
                 <li class="menu-label">Pelanggan</li>
                 <li>
@@ -139,7 +134,7 @@
                 </li>
 
                 <li>
-                    <a href="pages-timeline.html">
+                    <a href="{{ route('pelanggan.index') }}">
                         <div class="parent-icon"><i class="bi bi-collection-play-fill"></i>
                         </div>
                         <div class="menu-title">Daftar Produk</div>
@@ -152,7 +147,7 @@
                         <div class="menu-title">Masukkan (feedback)</div>
                     </a>
                 </li>
-                 <li>
+                <li>
                     <a href="pages-pricing-tables.html">
                         <div class="parent-icon"><i class="bi bi-tags-fill"></i>
                         </div>

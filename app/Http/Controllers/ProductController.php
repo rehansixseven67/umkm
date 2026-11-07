@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -12,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+         $products = Product::with('category')->get();
         return view('product.index', compact('products'));
     }
 
@@ -21,7 +23,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('product.create');
+        $categories = Category::all();
+
+        return view('product.create', compact('categories'));
     }
 
     /**
@@ -30,11 +34,13 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'nama_produk' => 'required',
+            'produk' => 'required',
+            'harga' => 'required',
             'deskripsi' => 'required',
-            'kategori' => 'required',
             'status' => 'required',
-            'image' => 'nullable | image | mimes:jpg,jpeg,png,webp'
+            'image' => 'nullable | image | mimes:jpg,jpeg,png,webp',
+
+            'kategori_id' => 'required|exists:categories,id_kategori',
         ]);
 
         if ($request->hasFile('image')) {
@@ -60,7 +66,9 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('ready.edit', compact('ready'));
+        $categories = Category::all();
+
+        return view('product.edit', compact('product', 'categories'));
     }
 
     /**
@@ -69,11 +77,15 @@ class ProductController extends Controller
     public function update(Request $request, Product $product)
     {
         $data = $request->validate([
-            'nama_produk' => 'required',
+            'produk' => 'required',
+            'harga' => 'required',
             'deskripsi' => 'required',
-            'kategori' => 'required',
             'status' => 'required',
-            'image' => 'nullable | image | mimes:jpg,jpeg,png,webp | max:2048'
+
+            'image' => 'nullable | image | mimes:jpg,jpeg,png,webp | max:2048',
+
+
+            'kategori_id' => 'required|exists:categories,id_kategori',
         ]);
 
         if ($request->hasFile('image')) {
@@ -92,6 +104,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
+
         return redirect()->route('product.index')
             ->with('success', 'produk berhasil dihapus.');
     }
