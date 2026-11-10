@@ -11,4 +11,5 @@ Route::resource('product', ProductController::class)->except(['show']);
 
 Route::resource('category', CategoryController::class)->except(['show']);
 
-Route::view('/pelanggan', 'pelanggan.index')->name('pelanggan.index');
+Route::get('/pelanggan', [ProductController::class, 'pelangganIndex'])
+    ->name('pelanggan.index');

@@ -18,8 +18,8 @@
 
  </body>
 
- <footer class="footer text-center mt-auto">
+ <!-- <footer class="footer text-center mt-auto">
      <div class="footer-text">
          Copyright © 2022. All right reserved.
      </div>
- </footer>
+ </footer> -->

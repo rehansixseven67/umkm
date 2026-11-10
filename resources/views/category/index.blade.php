@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('admin.layout')
 @section('content')
 <a href="{{ route('category.create') }}" class="btn btn-primary ms-auto mb-2">Tambah kategori</a>
 <div class="card">

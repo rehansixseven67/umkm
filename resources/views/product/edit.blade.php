@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('admin.layout')
 @section('content')
 <h1>edit produk</h1>
 <div class="card">

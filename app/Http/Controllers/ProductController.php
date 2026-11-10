@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-         $products = Product::with('category')->get();
+        $products = Product::with('category')->get();
         return view('product.index', compact('products'));
     }
 
@@ -107,5 +107,11 @@ class ProductController extends Controller
 
         return redirect()->route('product.index')
             ->with('success', 'produk berhasil dihapus.');
+    }
+    public function pelangganIndex()
+    {
+        $products = Product::with('category')->get();
+
+        return view('pelanggan.index', compact('products'));
     }
 }

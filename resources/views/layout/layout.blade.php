@@ -175,11 +175,11 @@
         <!--end overlay-->
 
         <!--start footer-->
-        <footer class="footer">
+        <!-- <footer class="footer">
             <div class="footer-text">
                 Copyright © 2022. All right reserved.
             </div>
-        </footer>
+        </footer> -->
         <!--end footer-->
 
 
