@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="{{ asset('assets/images/favicon-32x32.png') }}" type="image/png" />
+    <!-- <link rel="icon" href="{{ asset('assets/images/favicon-32x32.png') }}" type="image/png" /> -->
     <!--plugins-->
     <link href="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet" />
@@ -28,7 +28,7 @@
     <link href="{{ asset('assets/css/semi-dark.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/css/header-colors.css')}}" rel="stylesheet" />
 
-    <title>Onedash - Bootstrap 5 Admin Template</title>
+    <title>Naturally55 - Bootstrap 5 Admin</title>
 </head>
 
 <body>
@@ -56,6 +56,7 @@
                         </li>
                     </ul>
                 </div>
+                <!-- @can('create-products')
                 <div class="dropdown dropdown-user-setting">
                     <a class="dropdown-toggle dropdown-toggle-nocaret" href="#" data-bs-toggle="dropdown">
                         <div class="user-setting d-flex align-items-center gap-3">
@@ -77,6 +78,7 @@
                         </li>
                     </ul>
                 </div>
+                @endcan -->
             </nav>
         </header>
         <!--end top header-->
@@ -84,9 +86,9 @@
         <!--start sidebar -->
         <aside class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
-                <div>
+                <!-- <div>
                     <img src="{{ asset('assets/images/logo-icon.png')}}" class="logo-icon" alt="logo icon">
-                </div>
+                </div> -->
                 <div>
                     <h4 class="logo-text">Naturally55</h4>
                 </div>
@@ -95,6 +97,7 @@
             </div>
             <!--navigation-->
             <ul class="metismenu" id="menu">
+                @hasanyrole('Admin|Super Admin')
                 <li>
                     <a href="{{ route('dashboard') }}">
                         <div class="parent-icon"><i class="bi bi-house-fill"></i>
@@ -103,28 +106,35 @@
                     </a>
                 </li>
 
+
                 <li class="menu-label">Admin</li>
+
                 <li>
                     <a href="javascript:;" class="has-arrow">
                         <div class="parent-icon"><i class="bi bi-droplet-fill"></i>
                         </div>
                         <div class="menu-title">Produk</div>
                     </a>
-                    <!-- elo -->
+
                     <ul>
                         <li>
                             <a href="{{ route('product.index') }}">
                                 <i class="bi bi-circle"></i>Daftar Produk
                             </a>
                         </li>
+
+
                         <li>
                             <a href="{{ route('category.index') }}">
                                 <i class="bi bi-circle"></i>daftar kategori
                             </a>
                         </li>
                     </ul>
+
                 </li>
+                @endhasanyrole
                 <li class="menu-label">Pelanggan</li>
+
                 <li>
                     <a href="pages-user-profile.html">
                         <div class="parent-icon"><i class="bi bi-person-lines-fill"></i>

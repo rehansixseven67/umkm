@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" href="{{ asset('assets/images/favicon-32x32.png') }}" type="image/png" />
+    <!-- <link rel="icon" href="{{ asset('assets/images/favicon-32x32.png') }}" type="image/png" /> -->
     <!--plugins-->
     <link href="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet" />
@@ -61,19 +61,22 @@
                         <div class="user-setting d-flex align-items-center gap-3">
                             <img src="{{asset('assets/images/avatars/avatar-1.png')}}" class="user-img" alt="">
                             <div class="d-none d-sm-block">
-                                <p class="user-name mb-0">Jhon Deo</p>
-                                <small class="mb-0 dropdown-user-designation">HR Manager</small>
+                                <p class="user-name mb-0">{{ auth()->user()->name }}</p>
+                                <small class="mb-0 dropdown-user-designation">
+                                    {{ auth()->user()->getRoleNames()->first() ?? 'Belum ada peran' }}
+                                </small>
                             </div>
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li>
-                            <a class="dropdown-item" href="authentication-signup-with-header-footer.html">
-                                <div class="d-flex align-items-center">
-                                    <div class=""><i class="bi bi-lock-fill"></i></div>
-                                    <div class="ms-3"><span>Logout</span></div>
-                                </div>
-                            </a>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit" class="dropdown-item">
+                                    <i class="bi bi-lock-fill"></i>
+                                    <span class="ms-3">Logout</span>
+                                </button>
+                            </form>
                         </li>
                     </ul>
                 </div>

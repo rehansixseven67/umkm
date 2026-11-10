@@ -1,6 +1,8 @@
 @extends('admin.layout')
 @section('content')
+@can('create-products')
 <a href="{{ route('product.create') }}" class="btn btn-primary ms-auto mb-2">tambah data produk</a>
+@endcan
 <div class="card">
     <div class="card-body">
         <div class="d-flex align-items-center">

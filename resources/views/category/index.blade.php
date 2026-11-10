@@ -1,6 +1,8 @@
 @extends('admin.layout')
 @section('content')
+@can('create-category')
 <a href="{{ route('category.create') }}" class="btn btn-primary ms-auto mb-2">Tambah kategori</a>
+@endcan
 <div class="card">
     <div class="card-body">
         <div class="d-flex align-items-center">
