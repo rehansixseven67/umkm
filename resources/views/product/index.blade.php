@@ -19,6 +19,7 @@
                         <th>id</th>
                         <th>foto produk</th>
                         <th>produk</th>
+                        <th>link</th>
                         <th>harga</th>
                         <th>kategori</th>
                         <th>status</th>
@@ -40,6 +41,7 @@
                             </div>
                         </td>
                         <td>{{ $product->produk }}</td>
+                        <td>{{ $product->tokopedia_url }}</td>
                         <td>Rp {{ number_format((float) $product->harga * 1000, 0, ',', '.') }}</td>
                         <td>{{ $product->category?->kategori ?? '-' }}</td>
                         <td>{{ ucfirst(str_replace('_', ' ', $product->status)) }}</td>

@@ -41,6 +41,19 @@
                 <input class="form-control" type="string" name="harga" required>
             </div>
             <div class="mb-3">
+                <label for="tokopedia_url">Link Tokopedia</label>
+                <input
+                    type="url"
+                    name="tokopedia_url"
+                    id="tokopedia_url"
+                    class="form-control"
+                    value="{{ old('tokopedia_url', $product->tokopedia_url ?? '') }}"
+                    placeholder="https://www.tokopedia.com/...">
+                @error('tokopedia_url')
+                <div class="text-danger">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="mb-3">
                 <label for="kategori_id" class="form-label">kategori</label>
                 <select name="kategori_id" class="form-control" required>
                     <option value="">Pilih kategori</option>

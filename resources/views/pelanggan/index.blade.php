@@ -14,7 +14,7 @@
                     <div class="row row-cols-1 row-cols-lg-4 row-cols-xl-4 row-cols-xxl-5 g-3">
                         @forelse ($products as $product)
                         <div class="col">
-                            <div class="card border shadow-none mb-0">
+                            <div class="card border shadow-none mb-0 position-relative">
                                 <div class="card-body text-center">
                                     @if ($product->image)
                                     <img
@@ -23,12 +23,20 @@
                                         alt="{{ $product->produk }}">
                                     @endif
 
-                                    <h6 class="product-title">{{ $product->produk }}</h6>
+                                    <h6 class="product-title">
+                                        <a href="{{ route('pelanggan.show', $product) }}"
+                                            class="stretched-link text-dark text-decoration-none fs-4 fw-semibold">
+                                            {{ $product->produk }}
+                                        </a>
+                                    </h6>
                                     <p class="product-price fs-5 mb-1">
                                         Rp {{ number_format((float) $product->harga * 1000, 0, ',', '.') }}
                                     </p>
                                     <p>{{ $product->category?->kategori ?? '-' }}</p>
                                     <small>Status: {{ ucfirst(str_replace('_', ' ', $product->status)) }}</small>
+                                    <a href="{{ route('pelanggan.show', $product) }}" class="btn btn-dark mt-3 position-relative">
+                                        Detail Produk
+                                    </a>
                                 </div>
                             </div>
                         </div>

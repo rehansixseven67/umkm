@@ -11,6 +11,7 @@ class Product extends Model
         'produk',
         'deskripsi',
         'status',
+        'tokopedia_url',
         'harga',
         'kategori_id',
     ];

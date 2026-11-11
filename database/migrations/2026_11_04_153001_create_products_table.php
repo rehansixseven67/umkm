@@ -12,16 +12,17 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-           $table->id();
+            $table->id();
             $table->string('image')->nullable();
             $table->string('produk');
-             $table->string('status');
+            $table->string('status');
+            $table->text('tokopedia_url')->nullable();
             $table->string('deskripsi');
-            $table->decimal('harga',12, 2);
+            $table->decimal('harga', 12, 2);
             $table->integer('kategori_id');
 
             $table->timestamps();
-            
+
             $table->foreign('kategori_id')
                 ->references('id_kategori')
                 ->on('categories')

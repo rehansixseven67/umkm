@@ -28,6 +28,9 @@ Route::middleware(['auth', 'role:Admin|Super Admin'])->group(function () {
 Route::get('/pelanggan', [ProductController::class, 'pelangganIndex'])
     ->name('pelanggan.index');
 
+Route::get('/produk/{product}', [ProductController::class, 'show'])
+    ->name('pelanggan.show');
+
 // Route::resources([
 //     'roles' => RoleController::class,
 //     'users' => UserController::class,

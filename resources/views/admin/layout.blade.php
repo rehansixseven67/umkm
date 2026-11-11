@@ -87,9 +87,9 @@
         <!--start sidebar -->
         <aside class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
-                <div>
+                <!-- <div>
                     <img src="{{ asset('assets/images/logo-icon.png')}}" class="logo-icon" alt="logo icon">
-                </div>
+                </div> -->
                 <div>
                     <h4 class="logo-text">Naturally55</h4>
                 </div>

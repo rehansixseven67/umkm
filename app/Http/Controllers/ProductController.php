@@ -13,12 +13,12 @@ class ProductController extends Controller
      * Display a listing of the resource.
      */
 
-     public function __construct()
+    public function __construct()
     {
-       $this->middleware('permission:view-products', ['only' => ['index']]);
-       $this->middleware('permission:create-products', ['only' => ['create','store']]);
-       $this->middleware('permission:edit-products', ['only' => ['edit','update']]);
-       $this->middleware('permission:delete-products', ['only' => ['destroy']]);
+        $this->middleware('permission:view-products', ['only' => ['index']]);
+        $this->middleware('permission:create-products', ['only' => ['create', 'store']]);
+        $this->middleware('permission:edit-products', ['only' => ['edit', 'update']]);
+        $this->middleware('permission:delete-products', ['only' => ['destroy']]);
     }
     public function index()
     {
@@ -47,6 +47,7 @@ class ProductController extends Controller
             'deskripsi' => 'required',
             'status' => 'required',
             'image' => 'nullable | image | mimes:jpg,jpeg,png,webp',
+            'tokopedia_url' => 'nullable|url|max:2048',
 
             'kategori_id' => 'required|exists:categories,id_kategori',
         ]);
@@ -66,7 +67,9 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        // $product->load('category');
+
+        return view('pelanggan.show', compact('product'));
     }
 
     /**
@@ -89,9 +92,9 @@ class ProductController extends Controller
             'harga' => 'required',
             'deskripsi' => 'required',
             'status' => 'required',
+            'tokopedia_url' => 'nullable|url|max:2048',
 
             'image' => 'nullable | image | mimes:jpg,jpeg,png,webp | max:2048',
-
 
             'kategori_id' => 'required|exists:categories,id_kategori',
         ]);
