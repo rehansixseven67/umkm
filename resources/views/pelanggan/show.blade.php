@@ -6,15 +6,15 @@
             <div class="row g-4">
                 <div class="col-lg-6">
                     @if ($product->image)
-                        <img
-                            src="{{ asset('storage/' . $product->image) }}"
-                            class="img-fluid rounded border w-100"
-                            alt="{{ $product->produk }}">
+                    <img
+                        src="{{ asset('storage/' . $product->image) }}"
+                        class="img-fluid rounded border w-100"
+                        alt="{{ $product->produk }}">
                     @else
-                        <div class="bg-light rounded border d-flex align-items-center justify-content-center"
-                             style="min-height: 350px">
-                            <span class="text-muted">Foto produk belum tersedia</span>
-                        </div>
+                    <div class="bg-light rounded border d-flex align-items-center justify-content-center"
+                        style="min-height: 350px">
+                        <span class="text-muted">Foto produk belum tersedia</span>
+                    </div>
                     @endif
                 </div>
 
@@ -22,7 +22,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb mb-3">
                             <li class="breadcrumb-item">
-                                <a href="{{ route('pelanggan.index') }}">Home</a>
+                                <a href="{{ route('pelanggan.index', ['page' => request('page', 1)]) }}">Home</a>
                             </li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 {{ $product->category?->kategori ?? 'Produk' }}
@@ -46,8 +46,8 @@
                     </p>
 
                     @php
-                        $nomorWhatsapp = '6281234567890';
-                        $pesan = "Halo, saya mau pesan {$product->produk}.";
+                    $nomorWhatsapp = '6281234567890';
+                    $pesan = "Halo, saya mau pesan {$product->produk}.";
                     @endphp
 
                     <a
@@ -60,20 +60,20 @@
                     </a>
 
                     @if ($product->tokopedia_url)
-                        <a
-                            href="{{ $product->tokopedia_url }}"
-                            class="btn btn-outline-success btn-lg w-100"
-                            target="_blank"
-                            rel="noopener noreferrer">
-                            Beli di Tokopedia
-                        </a>
+                    <a
+                        href="{{ $product->tokopedia_url }}"
+                        class="btn btn-outline-success btn-lg w-100"
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Beli di Tokopedia
+                    </a>
                     @endif
                 </div>
             </div>
         </div>
     </div>
 
-    <a href="{{ route('pelanggan.index') }}" class="btn btn-outline-secondary mt-3">
+    <a href="{{ route('pelanggan.index', ['page' => request('page', 1)]) }}" class=" btn btn-outline-secondary mt-3">
         Kembali ke daftar produk
     </a>
 </div>
