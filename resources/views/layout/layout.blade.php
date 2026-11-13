@@ -136,7 +136,7 @@
                 <li class="menu-label">Pelanggan</li>
 
                 <li>
-                    <a href="pages-user-profile.html">
+                    <a href="{{ route('pelanggan.home') }}">
                         <div class="parent-icon"><i class="bi bi-person-lines-fill"></i>
                         </div>
                         <div class="menu-title">Home Pelanggan</div>

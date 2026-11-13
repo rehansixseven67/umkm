@@ -126,4 +126,14 @@ class ProductController extends Controller
 
         return view('pelanggan.index', compact('products'));
     }
+
+    public function pelangganHome()
+    {
+        $products = Product::with('category')
+            ->latest()
+            ->take(3)
+            ->get();
+
+        return view('pelanggan.home', compact('products'));
+    }
 }
