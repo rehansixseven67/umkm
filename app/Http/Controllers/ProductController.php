@@ -119,12 +119,30 @@ class ProductController extends Controller
         return redirect()->route('product.index')
             ->with('success', 'produk berhasil dihapus.');
     }
-    public function pelangganIndex()
+    public function pelangganIndex(Request $request)
     {
 
-        $products = Product::with('category')->paginate(5);
+        $validated = $request->validate([
+            'search' => ['nullable', 'string', 'max:100'],
+        ]);
 
-        return view('pelanggan.index', compact('products'));
+        $search = trim($validated['search'] ?? '');
+
+        $query = Product::with('category');
+
+        if ($search !== '') {
+            $query->where(function ($query) use ($search) {
+                $query->where('produk', 'like', "%{$search}%")
+                    ->orWhereHas('category', function ($categoryQuery) use ($search) {
+                        $categoryQuery->where('kategori', 'like', "%{$search}%");
+                    });
+            });
+        }
+
+
+        $products = $query->paginate(10)->withQueryString();
+
+        return view('pelanggan.index', compact('products', 'search'));
     }
 
     public function pelangganHome()

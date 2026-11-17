@@ -3,7 +3,7 @@
 @section('content')
 <div class="mb-4">
     <h3>Selamat Datang, {{ auth()->user()->name }}!</h3>
-    <p>Kelola data dan pantau perkembangan produk Naturally55.</p>
+    <!-- <p>Kelola data dan pantau perkembangan produk Naturally55.</p> -->
 </div>
 
 <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-3 mb-4">

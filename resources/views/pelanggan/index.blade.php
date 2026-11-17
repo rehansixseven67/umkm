@@ -1,88 +1,74 @@
-@extends('layout.layout')
+@extends('layout.pelanggan')
 
 @section('content')
-<div class="card">
-    <div class="card-header py-3">
-        <div class="row g-3 align-items-center">
-            <div class="col-lg-3 col-md-6 me-auto">
-                <div class="position-relative">
-                    <div class="position-absolute top-50 translate-middle-y search-icon px-3">
-                        <i class="bi bi-search"></i>
-                    </div>
-                    <input class="form-control ps-5" type="text" placeholder="Cari produk">
-                </div>
-            </div>
+<main class="home-container">
+    <div class="section-heading">
+        <div>
+            <p class="eyebrow">Katalog Produk</p>
+            <h2>Semua Produk</h2>
+          
         </div>
+        <form class="product-search" action="{{ route('pelanggan.index') }}" method="GET">
+            <input
+                type="search"
+                name="search"
+                value="{{ $search }}"
+                placeholder="Cari produk"
+                aria-label="Cari produk">
+
+            <button type="submit">Cari</button>
+
+            @if ($search !== '')
+            <a href="{{ route('pelanggan.index') }}" class="search-clear">Reset</a>
+            @endif
+        </form>
     </div>
 
-    <div class="card-body">
-        <div class="product-grid">
-            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 row-cols-xxl-5 g-3">
-                @forelse ($products as $product)
-                <div class="col d-flex">
-                    <div class="card border shadow-none mb-0 w-100 h-100">
-                        <div class="card-body text-center d-flex flex-column">
-                            <div class="ratio ratio-4x3 mb-3">
-                                @if ($product->image)
-                                <img
-                                    src="{{ asset('storage/' . $product->image) }}"
-                                    class="w-100 h-100"
-                                    style="object-fit: contain;"
-                                    alt="{{ $product->produk }}">
-                                @else
-                                <div class="d-flex align-items-center justify-content-center text-muted">
-                                    Gambar tidak tersedia
-                                </div>
-                                @endif
-                            </div>
-
-                            <h6 class="product-title text-truncate">
-                                <a
-                                    href="{{ route('pelanggan.show', [
-                                            'product' => $product,
-                                            'page' => $products->currentPage(),
-                                        ]) }}"
-                                    class="stretched-link text-dark text-decoration-none fs-4 fw-semibold">
-                                    {{ $product->produk }}
-                                </a>
-                            </h6>
-
-                            <p class="product-price fs-5 mb-1 text-truncate">
-                                Rp {{ number_format((float) $product->harga * 1000, 0, ',', '.') }}
-                            </p>
-
-                            <p class="text-truncate">
-                                {{ $product->category?->kategori ?? '-' }}
-                            </p>
-
-                            <small class="text-truncate">
-                                Status: {{ ucfirst(str_replace('_', ' ', $product->status)) }}
-                            </small>
-
-                            <a
-                                href="{{ route('pelanggan.show', [
-                                        'product' => $product,
-                                        'page' => $products->currentPage(),
-                                    ]) }}"
-                                class="btn btn-dark mt-auto mt-3 position-relative">
-                                Detail Produk
-                            </a>
-                        </div>
-                    </div>
+    <div class="product-grid">
+        @forelse ($products as $product)
+        <article class="product-card">
+            <a href="{{ route('pelanggan.show', [
+                    'product' => $product,
+                    'page' => $products->currentPage(),
+                ]) }}">
+                <div class="product-image">
+                    @if ($product->image)
+                    <img
+                        src="{{ asset('storage/' . $product->image) }}"
+                        alt="{{ $product->produk }}">
+                    @else
+                    <span>Foto produk belum tersedia</span>
+                    @endif
                 </div>
-                @empty
-                <div class="col-12">
-                    <p class="mb-0">Belum ada produk.</p>
-                </div>
-                @endforelse
+            </a>
+
+            <div class="product-info">
+                <p class="product-category">
+                    {{ $product->category?->kategori ?? 'Produk UMKM' }}
+                </p>
+                <h3>{{ $product->produk }}</h3>
+                <p class="product-price">
+                    Rp. {{ number_format((float) $product->harga * 1000, 0, ',', '.') }}
+                </p>
+                <a
+                    class="product-button"
+                    href="{{ route('pelanggan.show', [
+                            'product' => $product,
+                            'page' => $products->currentPage(),
+                        ]) }}">
+                    Lihat detail
+                </a>
             </div>
-        </div>
-
-        @if ($products->hasPages())
-        <div class="mt-4 d-flex justify-content-center">
-            {{ $products->links() }}
-        </div>
-        @endif
+        </article>
+        @empty
+        <p class="empty-products">belum ada produk.</p>
+        @endforelse
     </div>
-</div>
+
+    @if ($products->hasPages())
+    <div class="product-pagination">
+        {{ $products->links() }}
+    </div>
+    @endif
+</main>
 @endsection

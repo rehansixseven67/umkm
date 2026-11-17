@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layout.pelanggan')
 @section('content')
 <div class="container py-4">
     <div class="card border shadow-sm">
