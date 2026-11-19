@@ -15,7 +15,7 @@ Auth::routes([
 ]);
 
 Route::get('/', function () {
-    return redirect()->route('pelanggan.index');
+    return redirect()->route('pelanggan.home');
 });
 
 // Route::get('/', function () {

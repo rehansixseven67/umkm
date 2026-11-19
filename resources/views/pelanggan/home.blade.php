@@ -24,8 +24,8 @@
     <section class="home-container">
         <div class="section-heading">
             <div>
-                <h2>Produk terbaru</h2>
-                <p>Pilihan produk terbaru dari UMKM lokal.</p>
+                <h2>Produk terpopuler</h2>
+                <p>berikut adalah produk yg paling banyak dibeli.</p>
             </div>
             <a class="text-link" href="{{ route('pelanggan.index') }}">
                 Lihat semua produk →
