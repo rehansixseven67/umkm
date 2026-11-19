@@ -35,6 +35,13 @@
                     <p class="fs-2 fw-semibold text-success mb-3">
                         Rp {{ number_format((float) $product->harga * 1000, 0, ',', '.') }}
                     </p>
+                    <span class="d-block mb-3">
+                        <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                        <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                        <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                        <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                        <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                    </span>
 
                     <p class="text-secondary mb-4">{{ $product->deskripsi }}</p>
 

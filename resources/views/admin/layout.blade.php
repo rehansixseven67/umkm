@@ -109,7 +109,7 @@
                 <li class="menu-label">Admin</li>
                 <li>
                     <a href="javascript:;" class="has-arrow">
-                        <div class="parent-icon"><i class="bi bi-droplet-fill"></i>
+                        <div class="parent-icon"><i class="bi bi-basket-fill"></i>
                         </div>
                         <div class="menu-title">Produk</div>
                     </a>

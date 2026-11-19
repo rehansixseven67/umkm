@@ -6,7 +6,7 @@
         <div>
             <p class="eyebrow">Katalog Produk</p>
             <h2>Semua Produk</h2>
-          
+
         </div>
         <form class="product-search" action="{{ route('pelanggan.index') }}" method="GET">
             <input
@@ -50,6 +50,13 @@
                 <p class="product-price">
                     Rp. {{ number_format((float) $product->harga * 1000, 0, ',', '.') }}
                 </p>
+                <span class="d-block mb-3">
+                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                </span>
                 <a
                     class="product-button"
                     href="{{ route('pelanggan.show', [

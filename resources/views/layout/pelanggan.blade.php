@@ -7,6 +7,7 @@
     <title>Naturally55</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/pelanggan.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 
 <body>
@@ -22,6 +23,6 @@
     <div class="customer-home">
         @yield('content')
     </div>
-    
+
 </body>
 </html>

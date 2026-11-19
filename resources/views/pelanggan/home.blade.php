@@ -10,7 +10,7 @@
                 nyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenye
             </p>
             <a class="hero-button" href="{{ route('pelanggan.index') }}">
-                kunjungi tokopedia
+                tentang toko ini
             </a>
         </div>
 
