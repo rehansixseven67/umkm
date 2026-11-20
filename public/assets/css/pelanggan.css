@@ -9,6 +9,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.pelanggan body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 .pelanggan {
     --green: #245c46;
     --muted: #718078;
@@ -21,7 +27,7 @@ body {
 }
 
 .customer-home {
-    min-height: 100vh;
+    flex: 1;
 }
 
 .home-nav,
@@ -314,6 +320,72 @@ body {
     font-weight: 700;
 }
 
+.pelanggan-footer {
+    width: 100%;
+    margin-top: 40px;
+    padding: 38px 24px 18px;
+    color: #c8d5ce;
+    background: #1a2232;
+    border-top: 1px solid rgb(255 255 255 / 12%);
+}
+
+.pelanggan-footer-inner {
+    width: min(1340px, calc(100% - 48px));
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(260px, 0.8fr) 1.2fr;
+    gap: 40px;
+}
+
+.pelanggan-footer h2 {
+    margin: 0 0 16px;
+    color: #fff;
+    font-size: 23px;
+}
+
+.pelanggan-footer h3 {
+    margin: 0 0 10px;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.pelanggan-footer p {
+    max-width: 320px;
+    margin: 0 0 6px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.pelanggan-footer-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(180px, 1fr));
+    gap: 10px 24px;
+    margin-top: 14px;
+}
+
+.pelanggan-footer-list a {
+    color: #dce9e2;
+    font-size: 14px;
+}
+
+.pelanggan-footer-list a:hover {
+    color: #fff;
+}
+
+.pelanggan-footer-list i {
+    margin-right: 7px;
+}
+
+.pelanggan-footer-copy {
+    display: block;
+    margin-top: 34px;
+    padding-top: 18px;
+    border-top: 1px solid rgb(255 255 255 / 12%);
+    font-size: 13px;
+}
+
 .product-pagination {
     margin: 28px auto 60px;
     display: flex;
@@ -342,11 +414,13 @@ body {
 }
 
 .product-pagination nav > div:nth-child(2) > div:first-child p {
+    
     margin: 0;
     color: var(--muted);
     text-align: center;
     white-space: nowrap;
 }
+
 
 .product-pagination nav > div:nth-child(2) > div:last-child {
     width: 100%;
@@ -450,6 +524,16 @@ body {
 
     .product-info {
         padding: 16px;
+    }
+
+    .pelanggan-footer-inner {
+        width: 100%;
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .pelanggan-footer-list {
+        grid-template-columns: 1fr;
     }
 }
 

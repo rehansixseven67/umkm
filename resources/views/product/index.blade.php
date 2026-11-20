@@ -64,5 +64,10 @@
             </table>
         </div>
     </div>
+    @if ($products->hasPages())
+    <div class="product-pagination">
+        {{ $products->links() }}
+    </div>
+    @endif
 </div>
 @endsection

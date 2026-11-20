@@ -15,14 +15,15 @@ html.semi-dark .mobile-toggle-icon:hover {
 
 html.semi-dark .toggle-icon:hover {
 	color: #fff;
-    background-color: #29344d;
+    background-color: #496d32;
 } 
 
 
 html.semi-dark .sidebar-wrapper,
 html.semi-dark .sidebar-wrapper .sidebar-header {
 
-    background-color: #1a2232;
+    background-color: rgb(13, 49, 13)
+    /* #496d32 */
 
 }
 
@@ -30,7 +31,7 @@ html.semi-dark .sidebar-wrapper .sidebar-header {
 html.semi-dark .sidebar-wrapper, 
 html.semi-dark .sidebar-wrapper .sidebar-header {
 
-    border-right: 1px solid #1a2232;
+    border-right: 1px solid rgb(13, 49, 13)
 
 }
 

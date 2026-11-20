@@ -22,7 +22,7 @@ class ProductController extends Controller
     }
     public function index()
     {
-        $products = Product::with('category')->get();
+        $products = Product::with('category')->paginate(10);
         return view('product.index', compact('products'));
     }
 
@@ -149,9 +149,22 @@ class ProductController extends Controller
     {
         $products = Product::with('category')
             ->latest()
-            ->take(3)
+            ->take(5)
             ->get();
 
         return view('pelanggan.home', compact('products'));
+        
+        $latestProducts = Product::with('category')
+            ->latest()
+            ->take(5)
+            ->get();
+
+        $popularProducts = Product::with('category')
+            ->where('is_popular', true)
+            ->latest()
+            ->take(5)
+            ->get();
+
+        return view('pelanggan.home', compact('latestProducts', 'popularProducts'));
     }
 }

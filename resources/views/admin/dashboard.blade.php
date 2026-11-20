@@ -63,7 +63,7 @@
                         <p class="mb-1">Rating</p>
                         <div class="d-flex align-items-center gap-2">
                             <i class="bi bi-star-fill text-warning"></i>
-                            <h4 class="mb-0 text-orange">4.8</h4>
+                            <h4 class="mb-0 text-orange">4.8 (1.2rb)</h4>
                         </div>
                     </div>
                     <div class="ms-auto widget-icon bg-orange text-white">
@@ -127,4 +127,5 @@
         </div>
     </div>
 </div>
+
 @endsection

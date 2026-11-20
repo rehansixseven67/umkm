@@ -27,6 +27,8 @@
     <link href="{{ asset('assets/css/light-theme.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/css/semi-dark.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/css/header-colors.css')}}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/pelanggan.css')}}" rel="stylesheet" />
+
 
     <title>Naturally55 - Bootstrap 5</title>
 </head>
@@ -129,7 +131,7 @@
                 </li>
                 <li class="menu-label">Pelanggan</li>
                 <li>
-                    <a href="pages-user-profile.html">
+                    <a href="{{ route('pelanggan.home') }}">
                         <div class="parent-icon"><i class="bi bi-person-lines-fill"></i>
                         </div>
                         <div class="menu-title">Home Pelanggan</div>
@@ -173,23 +175,18 @@
             @yield('content')
         </div>
 
-        <!--start overlay-->
+        <!-- start overlay-->
         <div class="overlay nav-toggle-icon"></div>
-        <!--end overlay-->
+        <!--end overlay -->
 
         <!--start footer-->
-        <!-- <footer class="footer">
-            <div class="footer-text">
-                Copyright © 2022. All right reserved.
-            </div>
-        </footer> -->
-        <!--end footer-->
+
+      
 
 
         <!--Start Back To Top Button-->
-        <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a>
+        <!-- <a href="javaScript:;" class="back-to-top"><i class='bx bxs-up-arrow-alt'></i></a> -->
         <!--End Back To Top Button-->
-
 
 
     </div>

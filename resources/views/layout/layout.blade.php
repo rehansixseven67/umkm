@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" class="semi-dark">
-
+<!-- unused -->
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">

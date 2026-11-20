@@ -1,26 +1,28 @@
 @extends('layout.pelanggan')
 @section('content')
 <main>
-
+<div class="home-container">
+    <img src="{{ asset('assets/images/naturally55_banner.png') }}" alt="">
+   </div>
     <section class="hero">
+        
         <div class="hero-content">
             <p class="eyebrow">Informasi Toko Online</p>
             <h1>Naturally55</h1>
             <p>
                 nyenyenyenyenyenyenyenyenyenyenyenyenyenyenyenye
             </p>
-            <a class="hero-button" href="{{ route('pelanggan.index') }}">
-                tentang toko ini
+            <a class="hero-button" href="https://tk.tokopedia.com/ZSpKsdv9T/">
+                kunjungi di tokopedia!
             </a>
         </div>
 
         <div class="hero-visual">
-    <img
-        src="{{ asset('assets/images/profil_naturally55.png') }}"
-        alt="Naturally55">
-</div>
+            <img
+                src="{{ asset('assets/images/profil_naturally55.png') }}"
+                alt="Naturally55">
+        </div>
     </section>
-
     <section class="home-container">
         <div class="section-heading">
             <div>
@@ -28,7 +30,7 @@
                 <p>berikut adalah produk yg paling banyak dibeli.</p>
             </div>
             <a class="text-link" href="{{ route('pelanggan.index') }}">
-                Lihat semua produk →
+                Lihat semua produk <i class="bi bi-arrow-right"></i>
             </a>
         </div>
 
