@@ -153,18 +153,18 @@ class ProductController extends Controller
             ->get();
 
         return view('pelanggan.home', compact('products'));
-        
-        $latestProducts = Product::with('category')
-            ->latest()
-            ->take(5)
-            ->get();
 
-        $popularProducts = Product::with('category')
-            ->where('is_popular', true)
-            ->latest()
-            ->take(5)
-            ->get();
+        // $latestProducts = Product::with('category')
+        //     ->latest()
+        //     ->take(5)
+        //     ->get();
 
-        return view('pelanggan.home', compact('latestProducts', 'popularProducts'));
+        // $popularProducts = Product::with('category')
+        //     ->where('is_popular', true)
+        //     ->latest()
+        //     ->take(5)
+        //     ->get();
+
+        // return view('pelanggan.home', compact('latestProducts', 'popularProducts'));
     }
 }
