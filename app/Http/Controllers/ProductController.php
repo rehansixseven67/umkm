@@ -48,9 +48,11 @@ class ProductController extends Controller
             'status' => 'required',
             'image' => 'nullable | image | mimes:jpg,jpeg,png,webp',
             'tokopedia_url' => 'nullable|url|max:2048',
+            'terlaris' => ['nullable', 'boolean'],
 
             'kategori_id' => 'required|exists:categories,id_kategori',
         ]);
+        $data['terlaris'] = $request->boolean('terlaris');
 
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('images', 'public');
@@ -93,11 +95,13 @@ class ProductController extends Controller
             'deskripsi' => 'required',
             'status' => 'required',
             'tokopedia_url' => 'nullable|url|max:2048',
+            'terlaris' => ['nullable', 'boolean'],
 
             'image' => 'nullable | image | mimes:jpg,jpeg,png,webp | max:2048',
 
             'kategori_id' => 'required|exists:categories,id_kategori',
         ]);
+        $data['terlaris'] = $request->boolean('terlaris');
 
         if ($request->hasFile('image')) {
             $data['image'] = $request->file('image')->store('images', 'public');
@@ -124,9 +128,11 @@ class ProductController extends Controller
 
         $validated = $request->validate([
             'search' => ['nullable', 'string', 'max:100'],
+            'sort' => ['nullable', 'in:termurah,termahal'],
         ]);
 
         $search = trim($validated['search'] ?? '');
+        $sort = $validated['sort'] ?? '';
 
         $query = Product::with('category');
 
@@ -138,33 +144,38 @@ class ProductController extends Controller
                     });
             });
         }
+        if ($sort === 'termurah') {
+            $query->orderBy('harga', 'asc');
+        } elseif ($sort === 'termahal') {
+            $query->orderBy('harga', 'desc');
+        }
 
 
         $products = $query->paginate(10)->withQueryString();
 
-        return view('pelanggan.index', compact('products', 'search'));
+        return view('pelanggan.index', compact('products', 'search', 'sort'));
     }
 
     public function pelangganHome()
     {
-        $products = Product::with('category')
+        // $products = Product::with('category')
+        //     ->latest()
+        //     ->take(5)
+        //     ->get();
+
+        // return view('pelanggan.home', compact('products'));
+
+        $produkTerbaru = Product::with('category')
             ->latest()
             ->take(5)
             ->get();
 
-        return view('pelanggan.home', compact('products'));
+        $produkTerlaris = Product::with('category')
+            ->where('terlaris', true)
+            ->latest()
+            ->take(5)
+            ->get();
 
-        // $latestProducts = Product::with('category')
-        //     ->latest()
-        //     ->take(5)
-        //     ->get();
-
-        // $popularProducts = Product::with('category')
-        //     ->where('is_popular', true)
-        //     ->latest()
-        //     ->take(5)
-        //     ->get();
-
-        // return view('pelanggan.home', compact('latestProducts', 'popularProducts'));
+        return view('pelanggan.home', compact('produkTerbaru', 'produkTerlaris'));
     }
 }

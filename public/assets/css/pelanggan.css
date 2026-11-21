@@ -166,7 +166,7 @@ body {
 .section-heading {
     margin-bottom: 24px;
     display: flex;
-    align-items: end;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 16px;
 }
@@ -287,6 +287,7 @@ body {
     display: flex;
     align-items: center;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .product-search input {
@@ -318,6 +319,25 @@ body {
 .search-clear {
     color: var(--green);
     font-weight: 700;
+}
+
+.product-sort-options {
+    flex: 0 0 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+}
+
+.product-sort-options label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.product-sort-options input[type="radio"] {
+    flex: 0 0 auto;
+    width: auto;
+    padding: 0;
 }
 
 .pelanggan-footer {
@@ -400,11 +420,11 @@ body {
     overflow-x: auto;
 }
 
-.product-pagination nav > div:first-child {
+.product-pagination nav>div:first-child {
     display: none !important;
 }
 
-.product-pagination nav > div:nth-child(2) {
+.product-pagination nav>div:nth-child(2) {
     width: 100%;
     display: flex !important;
     flex-direction: column;
@@ -413,8 +433,8 @@ body {
     gap: 12px;
 }
 
-.product-pagination nav > div:nth-child(2) > div:first-child p {
-    
+.product-pagination nav>div:nth-child(2)>div:first-child p {
+
     margin: 0;
     color: var(--muted);
     text-align: center;
@@ -422,7 +442,7 @@ body {
 }
 
 
-.product-pagination nav > div:nth-child(2) > div:last-child {
+.product-pagination nav>div:nth-child(2)>div:last-child {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -538,6 +558,7 @@ body {
 }
 
 @media (max-width: 480px) {
+
     .home-nav,
     .home-container,
     .hero {

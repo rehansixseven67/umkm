@@ -23,6 +23,7 @@
                 alt="Naturally55">
         </div>
     </section>
+
     <section class="home-container">
         <div class="section-heading">
             <div>
@@ -35,7 +36,7 @@
         </div>
 
         <div class="product-grid">
-            @forelse ($products as $product)
+            @forelse ($produkTerlaris as $product)
             <article class="product-card">
                 <a
                     href="{{ route('pelanggan.show', ['product' => $product]) }}"
@@ -59,6 +60,69 @@
                     <p class="product-price">
                         Rp {{ number_format((float) $product->harga * 1000, 0, ',', '.') }}
                     </p>
+                    <span class="d-block mb-3">
+                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                </span>
+                    <a
+                        class="product-button"
+                        href="{{ route('pelanggan.show', ['product' => $product]) }}">
+                        Lihat detail
+                    </a>
+                </div>
+            </article>
+            @empty
+            <p class="empty-products">Belum ada produk yang tersedia.</p>
+            @endforelse
+        </div>
+    </section>
+
+     <section class="home-container">
+        <div class="section-heading">
+            <div>
+                <h2>Produk terbaru</h2>
+                <p>berikut adalah produk yg baru ditambahkan.</p>
+            </div>
+            <a class="text-link" href="{{ route('pelanggan.index') }}">
+                Lihat semua produk <i class="bi bi-arrow-right"></i>
+            </a>
+        </div>
+
+        <div class="product-grid">
+            @forelse ($produkTerbaru as $product)
+            <article class="product-card">
+                <a
+                    href="{{ route('pelanggan.show', ['product' => $product]) }}"
+                    aria-label="Lihat {{ $product->produk }}">
+                    <div class="product-image">
+                        @if ($product->image)
+                        <img
+                            src="{{ asset('storage/' . $product->image) }}"
+                            alt="{{ $product->produk }}">
+                        @else
+                        <span>Foto produk belum tersedia</span>
+                        @endif
+                    </div>
+                </a>
+
+                <div class="product-info">
+                    <p class="product-category">
+                        {{ $product->category?->kategori ?? 'Produk UMKM' }}
+                    </p>
+                    <h3>{{ $product->produk }}</h3>
+                    <p class="product-price">
+                        Rp {{ number_format((float) $product->harga * 1000, 0, ',', '.') }}
+                    </p>
+                    <span class="d-block mb-3">
+                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                </span>
                     <a
                         class="product-button"
                         href="{{ route('pelanggan.show', ['product' => $product]) }}">

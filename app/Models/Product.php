@@ -14,6 +14,7 @@ class Product extends Model
         'tokopedia_url',
         'harga',
         'kategori_id',
+        'terlaris'
     ];
 
     public function category()

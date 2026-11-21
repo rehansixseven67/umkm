@@ -62,7 +62,19 @@
                     @endforeach
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary">tambahkan produk</button>
+            <div class="form-check mb-3">
+                <input
+                    type="checkbox"
+                    name="terlaris"
+                    id="terlaris"
+                    value="1"
+                    class="form-check-input"
+                    @checked(old('terlaris'))>
+                <label class="form-check-label" for="terlaris">
+                    Tandai sebagai produk terlaris
+                </label>
+            </div>
+            <button type="submit" class="btn btn-primary" onclick="return confirm('buat produk?')">tambahkan produk</button>
             <a href="{{ route('product.index') }}" class="btn btn-outline-warning">kembali</a>
         </form>
     </div>

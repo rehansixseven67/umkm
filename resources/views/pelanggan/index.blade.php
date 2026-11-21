@@ -13,14 +13,28 @@
                 type="search"
                 name="search"
                 value="{{ $search }}"
-                placeholder="Cari produk"
-                aria-label="Cari produk">
+                placeholder="Cari produk / kategori"
+                aria-label="Cari produk / kategori">
 
             <button type="submit">Cari</button>
 
             @if ($search !== '')
             <a href="{{ route('pelanggan.index') }}" class="search-clear">Reset</a>
             @endif
+            <div class="product-sort-options">
+                <label>
+                    <input type="radio" name="sort" value="" @checked($sort==='' )>
+                    Urutan awal
+                </label>
+                <label>
+                    <input type="radio" name="sort" value="termurah" @checked($sort==='termurah' )>
+                    Harga terendah
+                </label>
+                <label>
+                    <input type="radio" name="sort" value="termahal" @checked($sort==='termahal' )>
+                    Harga tertinggi
+                </label>
+            </div>
         </form>
     </div>
 

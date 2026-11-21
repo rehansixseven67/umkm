@@ -22,13 +22,13 @@
             </div>
         </div>
     </div>
-
+    
     <div class="col">
         <div class="card radius-10 border-0 border-start border-success border-3 h-100">
             <div class="card-body">
                 <div class="d-flex align-items-center">
                     <div>
-                        <p class="mb-1">Total Pelanggan</p>
+                        <p class="mb-1">Total User</p>
                         <h4 class="mb-0 text-success">226</h4>
                     </div>
                     <div class="ms-auto widget-icon bg-success text-white">
@@ -75,6 +75,62 @@
     </div>
 </div>
 
+<div class="mt-4">
+    <h1>HISTORY</h1>
+</div>
+<div class="card radius-10">
+    <div class="card-header">
+        <h5 class="mb-0">Produk Terlaris</h5>
+    </div>
+
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table align-middle mb-0">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Gambar</th>
+                        <th>Nama Produk</th>
+                        <th>Kategori</th>
+                        <th>Harga</th>
+                        <th>Ditambahkan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse ($produkTerlaris as $product)
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>
+                            @if ($product->image)
+                            <img
+                                src="{{ asset('storage/' . $product->image) }}"
+                                alt="{{ $product->produk }}"
+                                width="50"
+                                height="50"
+                                class="rounded"
+                                style="object-fit: cover;">
+                            @else
+                            <span class="text-muted">Tidak ada gambar</span>
+                            @endif
+                        </td>
+                        <td>{{ $product->produk }}</td>
+                        <td>{{ $product->category?->kategori ?? '-' }}</td>
+                        <td>
+                            Rp {{ number_format((float) $product->harga * 1000, 0, ',', '.') }}
+                        </td>
+                        <td>{{ $product->created_at?->format('d M Y') ?? '-' }}</td>
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="6" class="text-center">Belum ada produk.</td>
+                    </tr>
+                    @endforelse
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
 <div class="card radius-10">
     <div class="card-header">
         <h5 class="mb-0">Produk Terbaru</h5>
@@ -94,7 +150,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($latestProducts as $product)
+                    @forelse ($produkTerbaru as $product)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td>

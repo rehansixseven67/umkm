@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('deskripsi');
             $table->decimal('harga', 12, 2);
             $table->integer('kategori_id');
+            $table->boolean('terlaris')->default(false);
 
             $table->timestamps();
 
