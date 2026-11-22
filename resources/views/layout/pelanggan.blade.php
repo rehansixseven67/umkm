@@ -17,7 +17,24 @@
         <div class="nav-links">
             <a href="{{ route('pelanggan.home') }}">Beranda</a>
             <a href="{{ route('pelanggan.index') }}">Semua Produk</a>
-            <a class="nav-button" href="{{ route('pelanggan.index') }}">Jelajahi Produk</a>
+            <a href="{{ route('kontak') }}">Kontak</a>
+            @guest
+            <a class="nav-button" href="{{ route('login') }}">Masuk</a>
+            <!-- <a class="nav-button" href="{{ route('register') }}">Daftar</a> -->
+            @endguest
+            @auth
+            <span class="nav-button">
+                {{ auth()->user()->name }}
+                <small class="ms-1">
+                    ({{ auth()->user()->getRoleNames()->first() ?? 'User' }})
+                </small>
+            </span>
+
+            <form method="POST" action="{{ route('logout') }}" class="m-0">
+                @csrf
+                <button type="submit" class="nav-button border-0">Keluar</button>
+            </form>
+            @endauth
         </div>
     </nav>
     <div class="customer-home">
@@ -38,19 +55,19 @@
 
                 <div class="pelanggan-footer-list">
                     <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-github"></i>Muhammad Aji Sukma
+                        <i class="bi bi-github"></i>nigas
                     </a>
                     <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-github"></i>Moh Fadzih Asrori
+                        <i class="bi bi-github"></i>nigas
                     </a>
                     <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-github"></i>Nama Pengembang 3
+                        <i class="bi bi-github"></i>nigas
                     </a>
                     <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-github"></i>Nama Pengembang 4
+                        <i class="bi bi-github"></i>nigas
                     </a>
                     <a href="https://github.com/" target="_blank" rel="noopener noreferrer">
-                        <i class="bi bi-github"></i>Nama Pengembang 5
+                        <i class="bi bi-github"></i>nigas
                     </a>
                 </div>
             </div>

@@ -1,91 +1,59 @@
 @extends('admin.layout')
 
 @section('content')
-<div class="mb-4">
-    <h3>Selamat Datang, {{ auth()->user()->name }}!</h3>
+<div class="dashboard-heading mb-4">
+    <h2>Selamat Datang, {{ auth()->user()->name }}!</h2>
     <!-- <p>Kelola data dan pantau perkembangan produk Naturally55.</p> -->
 </div>
 
 <div class="row row-cols-1 row-cols-sm-2 row-cols-xl-4 g-3 mb-4">
     <div class="col">
-        <div class="card radius-10 border-0 border-start border-tiffany border-3 h-100">
-            <div class="card-body">
-                <div class="d-flex align-items-center">
-                    <div>
-                        <p class="mb-1">Total Produk</p>
-                        <h4 class="mb-0 text-tiffany">{{ $totalProducts }}</h4>
-                    </div>
-                    <div class="ms-auto widget-icon bg-tiffany text-white">
-                        <i class="bi bi-bag-check-fill"></i>
-                    </div>
-                </div>
+        <div class="dashboard-stat-card h-100">
+            <div class="stat-icon"><i class="bi bi-bag-fill"></i></div>
+            <div class="stat-copy">
+                <p>Total Produk</p>
+                <h3>{{ number_format($totalProducts, 0, ',', '.') }}</h3>
             </div>
         </div>
     </div>
-    
     <div class="col">
-        <div class="card radius-10 border-0 border-start border-success border-3 h-100">
-            <div class="card-body">
-                <div class="d-flex align-items-center">
-                    <div>
-                        <p class="mb-1">Total User</p>
-                        <h4 class="mb-0 text-success">226</h4>
-                    </div>
-                    <div class="ms-auto widget-icon bg-success text-white">
-                        <i class="bi bi-people-fill"></i>
-                    </div>
-                </div>
+        <div class="dashboard-stat-card h-100">
+            <div class="stat-icon"><i class="bi bi-people-fill"></i></div>
+            <div class="stat-copy">
+                <p>Total User</p>
+                <h3>{{ number_format($totalProducts, 0, ',', '.') }}</h3>
             </div>
         </div>
     </div>
-
     <div class="col">
-        <div class="card radius-10 border-0 border-start border-pink border-3 h-100">
-            <div class="card-body">
-                <div class="d-flex align-items-center">
-                    <div>
-                        <p class="mb-1">Total Barang Terjual</p>
-                        <h4 class="mb-0 text-pink">5.9rb</h4>
-                    </div>
-                    <div class="ms-auto widget-icon bg-pink text-white">
-                        <i class="bi bi-cart-check-fill"></i>
-                    </div>
-                </div>
+        <div class="dashboard-stat-card h-100">
+            <div class="stat-icon"><i class="bi bi-cart-check-fill"></i></div>
+            <div class="stat-copy">
+                <p>Total Barang Terjual</p>
+                <h3>5.9k</h3>
+                <!-- <small>Menunggu data transaksi</small> -->
             </div>
         </div>
     </div>
-
     <div class="col">
-        <div class="card radius-10 border-0 border-start border-orange border-3 h-100">
-            <div class="card-body">
-                <div class="d-flex align-items-center">
-                    <div>
-                        <p class="mb-1">Rating</p>
-                        <div class="d-flex align-items-center gap-2">
-                            <i class="bi bi-star-fill text-warning"></i>
-                            <h4 class="mb-0 text-orange">4.8 (1.2rb)</h4>
-                        </div>
-                    </div>
-                    <div class="ms-auto widget-icon bg-orange text-white">
-                        <i class="bi bi-star-fill"></i>
-                    </div>
-                </div>
+        <div class="dashboard-stat-card h-100">
+            <div class="stat-icon"><i class="bi bi-star-fill"></i></div>
+            <div class="stat-copy">
+                <p>Rating</p>
+                <h3>4.8 (1.2k)</h3>
+                <!-- <small>Menunggu data ulasan</small> -->
             </div>
         </div>
     </div>
 </div>
 
-<div class="mt-4">
-    <h1>HISTORY</h1>
-</div>
-<div class="card radius-10">
+<div class="card dashboard-product-card border-0">
     <div class="card-header">
-        <h5 class="mb-0">Produk Terlaris</h5>
+        <h5 class="mb-0"><i class="bi bi-box-seam me-2"></i>Produk Terbaru</h5>
     </div>
-
-    <div class="card-body">
+    <div class="card-body p-0">
         <div class="table-responsive">
-            <table class="table align-middle mb-0">
+            <table class="table dashboard-product-table align-middle mb-0">
                 <thead>
                     <tr>
                         <th>No.</th>
@@ -94,59 +62,7 @@
                         <th>Kategori</th>
                         <th>Harga</th>
                         <th>Ditambahkan</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @forelse ($produkTerlaris as $product)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>
-                            @if ($product->image)
-                            <img
-                                src="{{ asset('storage/' . $product->image) }}"
-                                alt="{{ $product->produk }}"
-                                width="50"
-                                height="50"
-                                class="rounded"
-                                style="object-fit: cover;">
-                            @else
-                            <span class="text-muted">Tidak ada gambar</span>
-                            @endif
-                        </td>
-                        <td>{{ $product->produk }}</td>
-                        <td>{{ $product->category?->kategori ?? '-' }}</td>
-                        <td>
-                            Rp {{ number_format((float) $product->harga * 1000, 0, ',', '.') }}
-                        </td>
-                        <td>{{ $product->created_at?->format('d M Y') ?? '-' }}</td>
-                    </tr>
-                    @empty
-                    <tr>
-                        <td colspan="6" class="text-center">Belum ada produk.</td>
-                    </tr>
-                    @endforelse
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
-<div class="card radius-10">
-    <div class="card-header">
-        <h5 class="mb-0">Produk Terbaru</h5>
-    </div>
-
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table align-middle mb-0">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Gambar</th>
-                        <th>Nama Produk</th>
-                        <th>Kategori</th>
-                        <th>Harga</th>
-                        <th>Ditambahkan</th>
+                        <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -155,27 +71,28 @@
                         <td>{{ $loop->iteration }}</td>
                         <td>
                             @if ($product->image)
-                            <img
-                                src="{{ asset('storage/' . $product->image) }}"
-                                alt="{{ $product->produk }}"
-                                width="50"
-                                height="50"
-                                class="rounded"
-                                style="object-fit: cover;">
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->produk }}" class="dashboard-product-image">
                             @else
-                            <span class="text-muted">Tidak ada gambar</span>
+                            <div class="dashboard-product-placeholder"><i class="bi bi-image"></i></div>
                             @endif
                         </td>
-                        <td>{{ $product->produk }}</td>
-                        <td>{{ $product->category?->kategori ?? '-' }}</td>
+                        <td class="product-name">{{ $product->produk }}</td>
+                        <td><span class="dashboard-category-badge">{{ $product->category?->kategori ?? '-' }}</span></td>
                         <td>
                             Rp {{ number_format((float) $product->harga * 1000, 0, ',', '.') }}
                         </td>
                         <td>{{ $product->created_at?->format('d M Y') ?? '-' }}</td>
+                        <td class="text-center">
+                            <a href="{{ route('product.edit', $product->id) }}" class="btn btn-product-action" title="Edit produk"><i class="bi bi-pencil-fill"></i></a>
+                        </td>
                     </tr>
                     @empty
                     <tr>
-                        <td colspan="6" class="text-center">Belum ada produk.</td>
+                        <td colspan="7" class="dashboard-empty-state">
+                            <i class="bi bi-inbox"></i>
+                            <span>Belum ada produk yang ditambahkan.</span>
+                            <a href="{{ route('product.create') }}">Tambah produk pertama</a>
+                        </td>
                     </tr>
                     @endforelse
                 </tbody>
@@ -183,5 +100,4 @@
         </div>
     </div>
 </div>
-
 @endsection

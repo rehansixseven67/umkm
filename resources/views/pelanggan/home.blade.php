@@ -2,7 +2,7 @@
 @section('content')
 <main>
 <div class="home-container">
-    <img src="{{ asset('assets/images/naturally55_banner.png') }}" alt="">
+    <!-- <img src="{{ asset('assets/images/naturally55_banner.png') }}" alt=""> -->
    </div>
     <section class="hero">
         

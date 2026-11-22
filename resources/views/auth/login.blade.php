@@ -3,7 +3,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-        <!-- <div class="col-11 col-sm-9 col-md-6 col-lg-5"> -->
+            <!-- <div class="col-11 col-sm-9 col-md-6 col-lg-5"> -->
             <div class="card">
                 <div class="card-body">
                     <div class="border p-3 rounded">
@@ -75,6 +75,12 @@
                                 </div>
                             </div>
                         </form>
+                        @if (Route::has('register'))
+                        <p class="text-center mt-3 mb-0">
+                            Belum punya akun?
+                            <a href="{{ route('register') }}">Daftar di sini</a>
+                        </p>
+                        @endif
                     </div>
                 </div>
             </div>

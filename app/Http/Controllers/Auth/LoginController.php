@@ -45,4 +45,13 @@ class LoginController extends Controller
         $request->session()->regenerate();
         return redirect()->route('login');
     }
+
+    protected function authenticated(Request $request, $user)
+    {
+        if ($user->hasAnyRole(['Admin', 'Super Admin'])) {
+            return redirect()->route('dashboard');
+        }
+
+        return redirect()->route('pelanggan.home');
+    }
 }

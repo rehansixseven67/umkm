@@ -10,7 +10,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 
 Auth::routes([
-    'register' => false,
+    'register' => true,
     'reset' => false,
 ]);
 
@@ -43,3 +43,5 @@ Route::get('/produk/{product}', [ProductController::class, 'show'])
 
 Route::get('/home-pelanggan', [ProductController::class, 'pelangganHome'])
     ->name('pelanggan.home');
+
+Route::view('/kontak', 'kontak.kontak')->name('kontak');

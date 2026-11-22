@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="dark-theme">
+<html lang="id" class="light-theme">
 
 <head>
     <!-- Required meta tags -->
@@ -23,11 +23,10 @@
     <link href="{{ asset('assets/css/pace.min.css')}}" rel="stylesheet" />
 
     <!--Theme Styles-->
-    <link href="{{ asset('assets/css/dark-theme.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/css/light-theme.css')}}" rel="stylesheet" />
-    <link href="{{ asset('assets/css/semi-dark.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/css/header-colors.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/css/pelanggan.css')}}" rel="stylesheet" />
+    <link href="{{ asset('assets/css/naturally-dashboard.css') }}" rel="stylesheet" />
 
 
     <title>Naturally55 - Bootstrap 5</title>
@@ -209,9 +208,6 @@
     <!--app-->
     <script src="{{asset('assets/js/app.js')}}"></script>
     <script src="{{asset('assets/js/index.js')}}"></script>
-    <script>
-        new PerfectScrollbar(".best-product")
-    </script>
 
 
 </body>

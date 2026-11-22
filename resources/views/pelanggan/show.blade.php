@@ -1,9 +1,18 @@
 @extends('layout.pelanggan')
 @section('content')
 <div class="container py-4">
+    <div class="mb-4">
+        <h2 class="fw-bold mb-1">detail produk</h2>
+        <p class="text-secondary mb-0">
+            Lihat detail dan informasi produk sebelum memesan!!
+        </p>
+    </div>
     <div class="card border shadow-sm">
+
         <div class="card-body p-3 p-lg-4">
+
             <div class="row g-4">
+
                 <div class="col-lg-6">
                     @if ($product->image)
                     <img
@@ -43,8 +52,10 @@
                         <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
                     </span>
 
-                    <p class="text-secondary mb-4">{{ $product->deskripsi }}</p>
-
+                    <div class="mt-4">
+                        <h5 class="fw-bold">Tentang produk</h5>
+                        <p class="text-secondary mb-0">{{ $product->deskripsi }}</p>
+                    </div>
                     <hr>
 
                     <p class="mb-4">
@@ -53,8 +64,8 @@
                     </p>
 
                     @php
-                    $nomorWhatsapp = '6281234567890';
-                    $pesan = "Halo, saya mau pesan {$product->produk}.";
+                    $nomorWhatsapp = '6285710135707';
+                    $pesan = "halo, saya mau pesan {$product->produk}, apakah barangnya ready?";
                     @endphp
 
                     <a
