@@ -14,11 +14,24 @@
     <nav class="home-nav">
         <a class="brand" href="{{ route('pelanggan.home') }}">Naturally55</a>
 
-        <div class="nav-links">
-            <a href="{{ route('pelanggan.home') }}">Beranda</a>
-            <a href="{{ route('pelanggan.index') }}">Semua Produk</a>
-            <a href="{{ route('reviews.index') }}">Ulasan</a>
-            <a href="{{ route('kontak') }}">Kontak</a>
+        <button class="nav-toggle" type="button"
+            aria-expanded="false" aria-controls="customer-nav-links">
+            <i class="bi bi-list" aria-hidden="true"></i>
+            <span class="visually-hidden">Buka navigasi</span>
+        </button>
+
+        <div class="nav-links" id="customer-nav-links">
+            <a class="{{ request()->routeIs('pelanggan.home') ? 'active' : '' }}"
+                href="{{ route('pelanggan.home') }}">Beranda</a>
+
+            <a class="{{ request()->routeIs('pelanggan.index', 'pelanggan.show') ? 'active' : '' }}"
+                href="{{ route('pelanggan.index') }}">Semua Produk</a>
+
+            <a class="{{ request()->routeIs('reviews.index') ? 'active' : '' }}"
+                href="{{ route('reviews.index') }}">Ulasan</a>
+
+            <a class="{{ request()->routeIs('kontak') ? 'active' : '' }}"
+                href="{{ route('kontak') }}">Kontak</a>
             @guest
             <a class="nav-button" href="{{ route('login') }}">Masuk</a>
             <!-- <a class="nav-button" href="{{ route('register') }}">Daftar</a> -->
