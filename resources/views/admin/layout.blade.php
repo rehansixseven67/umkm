@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="id" class="naturally-dashboard.css">
+<html lang="id">
 
 <head>
     <!-- Required meta tags -->
@@ -7,9 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <link rel="icon" href="{{ asset('assets/images/favicon-32x32.png') }}" type="image/png" /> -->
     <!--plugins-->
-    <link href="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/metismenu/css/metisMenu.min.css')}}" rel="stylesheet" />
     <!-- Bootstrap CSS -->
     <link href="{{ asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
@@ -17,15 +15,12 @@
     <link href="{{ asset('assets/css/style.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/css/icons.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
 
     <!-- loader-->
     <link href="{{ asset('assets/css/pace.min.css')}}" rel="stylesheet" />
 
     <!--Theme Styles-->
-    <link href="{{ asset('assets/css/light-theme.css')}}" rel="stylesheet" />
-    <link href="{{ asset('assets/css/header-colors.css')}}" rel="stylesheet" />
-    <link href="{{ asset('assets/css/pelanggan.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/css/naturally-dashboard.css') }}" rel="stylesheet" />
 
     <title>Naturally55 - Bootstrap 5</title>
@@ -87,11 +82,11 @@
         <!--start sidebar -->
         <aside class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
-                <div>
+                <!-- <div>
                     <img src="{{ asset('assets/images/logo-naturally55.svg') }}" class="dashboard-logo" alt="Logo Naturally55">
-                </div>
+                </div> -->
                 <div>
-                    <h4 class="logo-text">Naturally55</h4>
+                    <h4 class="logo-text"><i class="bi bi-leaf-fill"></i> Naturally55</h4>
                 </div>
                 <div class="toggle-icon ms-auto"><i class="bi bi-list"></i>
                 </div>
@@ -198,16 +193,8 @@
     <script src="{{asset('assets/js/jquery.min.js')}}"></script>
     <script src="{{asset('assets/plugins/simplebar/js/simplebar.min.js')}}"></script>
     <script src="{{asset('assets/plugins/metismenu/js/metisMenu.min.js')}}"></script>
-    <script src="{{asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
-    <script src="{{asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js')}}"></script>
-    <script src="{{asset('assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js')}}"></script>
     <script src="{{asset('assets/js/pace.min.js')}}"></script>
-    <script src="{{asset('assets/plugins/chartjs/js/Chart.min.js')}}"></script>
-    <script src="{{asset('assets/plugins/chartjs/js/Chart.extension.js')}}"></script>
-    <script src="{{asset('assets/plugins/apexcharts-bundle/js/apexcharts.min.js')}}"></script>
-    <!--app-->
-    <script src="{{asset('assets/js/app.js')}}"></script>
-    <script src="{{asset('assets/js/index.js')}}"></script>
+ 
 
 
 </body>

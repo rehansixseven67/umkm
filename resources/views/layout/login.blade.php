@@ -1,27 +1,14 @@
- <!doctype html>
- <html lang="en" class="naturally-dashboard">
+<!DOCTYPE html>
+<html lang="en" class="auth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/auth.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
+</head>
 
- <head>
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <title>Login</title>
-
-     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-     <link href="{{ asset('assets/css/dark-theme.css') }}" rel="stylesheet" />
-     <link href="{{ asset('assets/css/login.css') }}" rel="stylesheet" />
-     <link href="{{ asset('assets/css/naturally-dashboard.css') }}" rel="stylesheet" /
- </head>
-
-
- <body class="min-vh-100 d-flex flex-column py-4">
-     <main class="container flex-grow-1 d-flex align-items-center">
-         @yield('content')
-     </main>
-
- </body>
-
- <!-- <footer class="footer text-center mt-auto">
-     <div class="footer-text">
-         Copyright © 2022. All right reserved.
-     </div>
- </footer> -->
+<body>
+    @yield('content')
+</body>
+</html>
