@@ -27,7 +27,7 @@ return new class extends Migration
             $table->foreign('kategori_id')
                 ->references('id_kategori')
                 ->on('categories')
-                ->cascadeOnDelete();
+                ->restrictOnDelete();
         });
     }
 

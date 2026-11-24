@@ -1,11 +1,11 @@
 @extends('layout.pelanggan')
 @section('content')
 <main>
-<div class="home-container">
-    <!-- <img src="{{ asset('assets/images/naturally55_banner.png') }}" alt=""> -->
-   </div>
+    <div class="home-container">
+        <!-- <img src="{{ asset('assets/images/naturally55_banner.png') }}" alt=""> -->
+    </div>
     <section class="hero">
-        
+
         <div class="hero-content">
             <p class="eyebrow">Informasi Toko Online</p>
             <h1>Naturally55</h1>
@@ -60,13 +60,30 @@
                     <p class="product-price">
                         Rp {{ number_format((float) $product->harga * 1000, 0, ',', '.') }}
                     </p>
+                    @if ($product->reviews_count > 0)
+                    @php
+                    $displayRating = round((float) $product->reviews_avg_rating * 2) / 2;
+                    @endphp
+
                     <span class="d-block mb-3">
-                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
-                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
-                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
-                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
-                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
-                </span>
+                        @for ($star = 1; $star <= 5; $star++)
+                            @if ($star <=floor($displayRating))
+                            <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                            @elseif (($star - $displayRating) == 0.5)
+                            <i class="bi bi-star-half text-warning" aria-hidden="true"></i>
+                            @else
+                            <i class="bi bi-star text-secondary" aria-hidden="true"></i>
+                            @endif
+                            @endfor
+
+                            <small class="text-secondary">
+                                {{ number_format((float) $product->reviews_avg_rating, 1, ',', '.') }}
+                                ({{ $product->reviews_count }})
+                            </small>
+                    </span>
+                    @else
+                    <p class="text-secondary mb-3">Belum ada rating</p>
+                    @endif
                     <a
                         class="product-button"
                         href="{{ route('pelanggan.show', ['product' => $product]) }}">
@@ -80,7 +97,7 @@
         </div>
     </section>
 
-     <section class="home-container">
+    <section class="home-container">
         <div class="section-heading">
             <div>
                 <h2>Produk terbaru</h2>
@@ -116,13 +133,30 @@
                     <p class="product-price">
                         Rp {{ number_format((float) $product->harga * 1000, 0, ',', '.') }}
                     </p>
+                    @if ($product->reviews_count > 0)
+                    @php
+                    $displayRating = round((float) $product->reviews_avg_rating * 2) / 2;
+                    @endphp
+
                     <span class="d-block mb-3">
-                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
-                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
-                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
-                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
-                    <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
-                </span>
+                        @for ($star = 1; $star <= 5; $star++)
+                            @if ($star <=floor($displayRating))
+                            <i class="bi bi-star-fill text-warning" aria-hidden="true"></i>
+                            @elseif (($star - $displayRating) == 0.5)
+                            <i class="bi bi-star-half text-warning" aria-hidden="true"></i>
+                            @else
+                            <i class="bi bi-star text-secondary" aria-hidden="true"></i>
+                            @endif
+                            @endfor
+
+                            <small class="text-secondary">
+                                {{ number_format((float) $product->reviews_avg_rating, 1, ',', '.') }}
+                                ({{ $product->reviews_count }})
+                            </small>
+                    </span>
+                    @else
+                    <p class="text-secondary mb-3">Belum ada rating</p>
+                    @endif
                     <a
                         class="product-button"
                         href="{{ route('pelanggan.show', ['product' => $product]) }}">

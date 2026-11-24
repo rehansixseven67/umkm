@@ -17,23 +17,34 @@
         <div class="nav-links">
             <a href="{{ route('pelanggan.home') }}">Beranda</a>
             <a href="{{ route('pelanggan.index') }}">Semua Produk</a>
+            <a href="{{ route('reviews.index') }}">Ulasan</a>
             <a href="{{ route('kontak') }}">Kontak</a>
             @guest
             <a class="nav-button" href="{{ route('login') }}">Masuk</a>
             <!-- <a class="nav-button" href="{{ route('register') }}">Daftar</a> -->
             @endguest
             @auth
-            <span class="nav-button">
-                {{ auth()->user()->name }}
-                <small class="ms-1">
-                    ({{ auth()->user()->getRoleNames()->first() ?? 'User' }})
-                </small>
-            </span>
+            <div class="dropdown">
+                <button
+                    class="nav-button dropdown-toggle border-0"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    {{ auth()->user()->name }}
+                </button>
 
-            <form method="POST" action="{{ route('logout') }}" class="m-0">
-                @csrf
-                <button type="submit" class="nav-button border-0">Keluar</button>
-            </form>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="dropdown-item">
+                                <i class="bi bi-box-arrow-right me-2"></i>
+                                Keluar
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
             @endauth
         </div>
     </nav>
@@ -78,7 +89,7 @@
             </div>
         </center>
     </footer>
-
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
 </body>
 
 </html>

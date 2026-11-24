@@ -1,5 +1,12 @@
 @extends('admin.layout')
 @section('content')
+@if (session('success'))
+<div class="alert alert-success">{{ session('success') }}</div>
+@endif
+
+@if (session('error'))
+<div class="alert alert-danger">{{ session('error') }}</div>
+@endif
 @can('create-category')
 <a href="{{ route('category.create') }}" class="btn btn-primary ms-auto mb-2">Tambah kategori</a>
 @endcan
@@ -17,10 +24,10 @@
                 <thead class="table-secondary">
                     <tr>
                         <th>id</th>
-                        
+
                         <th>kategori</th>
-                   
-         
+
+
                         <th>Actions</th>
                     </tr>
                 </thead>

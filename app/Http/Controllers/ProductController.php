@@ -67,11 +67,26 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(Request $request, Product $product)
     {
-        // $product->load('category');
+        $product->load([
+            'category',
+            'reviews.user',
+        ]);
 
-        return view('pelanggan.show', compact('product'));
+        $averageRating = $product->reviews->avg('rating');
+        $totalReviews = $product->reviews->count();
+
+        $userReview = $request->user()
+            ? $product->reviews->firstWhere('user_id', $request->user()->id)
+            : null;
+
+        return view('pelanggan.show', compact(
+            'product',
+            'averageRating',
+            'totalReviews',
+            'userReview'
+        ));
     }
 
     /**
@@ -134,7 +149,9 @@ class ProductController extends Controller
         $search = trim($validated['search'] ?? '');
         $sort = $validated['sort'] ?? '';
 
-        $query = Product::with('category');
+        $query = Product::with('category')
+            ->withAvg('reviews', 'rating')
+            ->withCount('reviews');
 
         if ($search !== '') {
             $query->where(function ($query) use ($search) {
@@ -167,12 +184,16 @@ class ProductController extends Controller
 
         $produkTerbaru = Product::with('category')
             ->latest()
+            ->withAvg('reviews', 'rating')
+            ->withCount('reviews')
             ->take(5)
             ->get();
 
         $produkTerlaris = Product::with('category')
             ->where('terlaris', true)
             ->latest()
+            ->withAvg('reviews', 'rating')
+            ->withCount('reviews')
             ->take(5)
             ->get();
 

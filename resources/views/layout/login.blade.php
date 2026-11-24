@@ -1,14 +1,15 @@
  <!doctype html>
- <html lang="en" class="dark-theme">
+ <html lang="en" class="naturally-dashboard">
 
  <head>
      <meta charset="utf-8">
      <meta name="viewport" content="width=device-width, initial-scale=1">
-     <title>Login - Dashboard</title>
+     <title>Login</title>
 
      <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
      <link href="{{ asset('assets/css/dark-theme.css') }}" rel="stylesheet" />
      <link href="{{ asset('assets/css/login.css') }}" rel="stylesheet" />
+     <link href="{{ asset('assets/css/naturally-dashboard.css') }}" rel="stylesheet" /
  </head>
 
 

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="id" class="light-theme">
+<html lang="id" class="naturally-dashboard.css">
 
 <head>
     <!-- Required meta tags -->
@@ -28,7 +28,6 @@
     <link href="{{ asset('assets/css/pelanggan.css')}}" rel="stylesheet" />
     <link href="{{ asset('assets/css/naturally-dashboard.css') }}" rel="stylesheet" />
 
-
     <title>Naturally55 - Bootstrap 5</title>
 </head>
 
@@ -41,11 +40,11 @@
                 <div class="mobile-toggle-icon fs-3 d-flex d-lg-none">
                     <i class="bi bi-list"></i>
                 </div>
-                <form class="searchbar">
+                <!-- <form class="searchbar">
                     <div class="position-absolute top-50 translate-middle-y search-icon ms-3"><i class="bi bi-search"></i></div>
                     <input class="form-control" type="text" placeholder="Type here to search">
                     <div class="position-absolute top-50 translate-middle-y search-close-icon"><i class="bi bi-x-lg"></i></div>
-                </form>
+                </form> -->
                 <div class="top-navbar-right ms-auto">
                     <ul class="navbar-nav align-items-center gap-1">
                         <li class="nav-item search-toggle-icon d-flex d-lg-none">
@@ -88,9 +87,9 @@
         <!--start sidebar -->
         <aside class="sidebar-wrapper" data-simplebar="true">
             <div class="sidebar-header">
-                <!-- <div>
-                    <img src="{{ asset('assets/images/logo-icon.png')}}" class="logo-icon" alt="logo icon">
-                </div> -->
+                <div>
+                    <img src="{{ asset('assets/images/logo-naturally55.svg') }}" class="dashboard-logo" alt="Logo Naturally55">
+                </div>
                 <div>
                     <h4 class="logo-text">Naturally55</h4>
                 </div>
@@ -137,7 +136,7 @@
                     </a>
                 </li>
 
-                <li>
+                <!-- <li>
                     <a href="{{ route('pelanggan.index') }}">
                         <div class="parent-icon"><i class="bi bi-collection-play-fill"></i>
                         </div>
@@ -151,18 +150,19 @@
                         <div class="menu-title">Masukkan (feedback)</div>
                     </a>
                 </li>
+                
                 <li>
-                    <a href="pages-pricing-tables.html">
-                        <div class="parent-icon"><i class="bi bi-tags-fill"></i>
-                        </div>
-                        <div class="menu-title">Ulasan</div>
+                    <a href="#">
+                        <div class="parent-icon"><i class="bi bi-envelope-fill"></i></div>
+                        <div class="menu-title">Pesan Kontak</div>
                     </a>
-                </li>
+                </li> -->
                 <li>
-                    <a href="pages-pricing-tables.html">
-                        <div class="parent-icon"><i class="bi bi-tags-fill"></i>
+                    <a href="{{ route('admin.reviews.index') }}">
+                        <div class="parent-icon">
+                            <i class="bi bi-chat-left-text"></i>
                         </div>
-                        <div class="menu-title">Kontak</div>
+                        <div class="menu-title">Kelola Ulasan</div>
                     </a>
                 </li>
             </ul>
@@ -180,7 +180,7 @@
 
         <!--start footer-->
 
-      
+
 
 
         <!--Start Back To Top Button-->
