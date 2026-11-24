@@ -581,6 +581,20 @@ body {
     .pelanggan-footer-list {
         grid-template-columns: 1fr;
     }
+
+    .brand-name {
+        display: none;
+    }
+
+    .brand {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .brand i {
+        font-size: 24px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -635,4 +649,13 @@ body {
     background: transparent;
     font-size: 25px;
     cursor: pointer;
+}
+
+@media (max-width: 760px) {
+    .nav-toggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+    }
 }

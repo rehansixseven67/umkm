@@ -7,12 +7,15 @@
     <title>Naturally55</title>
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/pelanggan.css') }}">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css">
 </head>
 
 <body>
     <nav class="home-nav">
-        <a class="brand" href="{{ route('pelanggan.home') }}">Naturally55</a>
+        <a class="brand" href="{{ route('pelanggan.home') }}">
+            <i class="bi bi-leaf-fill" aria-hidden="true"></i>
+            <span class="brand-name">Naturally55</span>
+        </a>
 
         <button class="nav-toggle" type="button"
             aria-expanded="false" aria-controls="customer-nav-links">
@@ -103,6 +106,7 @@
         </center>
     </footer>
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{asset('assets/js/toogle.js')}}"></script>
 </body>
 
 </html>
